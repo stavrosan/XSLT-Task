@@ -12,6 +12,12 @@
           
     <!--Avoid double roman elements-->
     <!-- <xsl:template match="calc[normalize-space(roman)]"/> -->
+
+     <!-- Remove duplicate <calc> elements -->
+  <!-- <xsl:template match="calc[(generate-id() = generate-id(key('distinct-calc', concat(calc[arab], '|', roman))[1]))]"/> -->
+
+  <!-- Key to identify unique <calc> elements -->
+  <!-- <xsl:key name="distinct-calc" match="calc" use="concat(calc[arab], '|', roman)" /> -->
     
     <!-- identity transform -->
     <xsl:template match="@*|node()">
@@ -43,7 +49,7 @@
         <xsl:copy-of select="."/>
         <arab>
         <xsl:choose>
-            <xsl:when test="matches(., '[^IVXLCDM]|II[^I]|IIII+|XXXX+|CCCC+|V[^I]|[^I]?I[VX][IVXLCDM]|[^I]?I[^VIX]|MMMM')">
+            <xsl:when test="matches(., '[^IVXLCDM]|II[^I]|IIII+|XXXX+|CCCC+|V[^I]|[^I]?I[VX][IVXLCDM]|[^I]?I[^VIX]|MMMM|LC|VIV|VV|LL|DD')">
                 <xsl:comment>Please enter valid roman numerals</xsl:comment>
                 <xsl:message terminate="no">Please enter valid roman numerals</xsl:message>
             </xsl:when>
