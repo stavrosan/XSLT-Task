@@ -23,7 +23,7 @@
         <xsl:copy-of select="."/>
         <arab>
         <xsl:choose>
-            <xsl:when test="matches(., '[^IVXLCDM]|II[^I]|IIII+|XXXX+|CCCC+|V[^I]|[^I]?I[VX][IVXLCDM]|[^I]?I[^VIX]|MMMM|LC|VIV|VV|LL|DD')">
+            <xsl:when test="matches(., '[^IVXLCDM]|II[^I]|IIII+|XXXX+|CCCC+|V[^I]|[^I]?I[VX][IVXLCDM]|[^I]?I[^VIX]|MMMM|LC|VIV|VV|LL|DD|DM')">
                 <xsl:comment>Please enter valid roman numerals</xsl:comment>
                 <xsl:message terminate="no">Please enter valid roman numerals</xsl:message>
             </xsl:when>
