@@ -12,9 +12,9 @@
 
 
     <!-- identity transform to copy elements and attributes of the input xml -->
-    <xsl:template match="@*|node()"> <!--The @* matches any attribute node-->
+    <xsl:template match="@*|node()"> 
         <xsl:copy>
-            <xsl:apply-templates select="@*|node()"/><!--Process all the attribute nodes as well as the child nodes-->
+            <xsl:apply-templates select="@*|node()"/>
         </xsl:copy>
     </xsl:template>
     
@@ -23,7 +23,7 @@
         <xsl:copy-of select="."/>
         <arab>
         <xsl:choose>
-            <xsl:when test="matches(., '[^IVXLCDM]|II[^I]|IIII+|XXXX+|CCCC+|V[^I]|[^I]?I[VX][IVXLCDM]|[^I]?I[^VIX]|MMMM')">
+            <xsl:when test="matches(., '[^IVXLCDM]|II[^I]|IIII+|XXXX+|CCCC+|V[^I]|[^I]?I[VX][IVXLCDM]|[^I]?I[^VIX]|MMMM|LC|VIV|VV|LL|DD')">
                 <xsl:comment>Please enter valid roman numerals</xsl:comment>
                 <xsl:message terminate="no">Please enter valid roman numerals</xsl:message>
             </xsl:when>
