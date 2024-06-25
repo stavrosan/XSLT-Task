@@ -9,15 +9,6 @@
         encoding="UTF-8" indent="yes"/>
     <!--To remove uneccessary space in the output-->
     <xsl:strip-space elements="*"/>
-          
-    <!--Avoid double roman elements-->
-    <!-- <xsl:template match="calc[normalize-space(roman)]"/> -->
-
-     <!-- Remove duplicate <calc> elements -->
-  <!-- <xsl:template match="calc[(generate-id() = generate-id(key('distinct-calc', concat(calc[arab], '|', roman))[1]))]"/> -->
-
-  <!-- Key to identify unique <calc> elements -->
-  <!-- <xsl:key name="distinct-calc" match="calc" use="concat(calc[arab], '|', roman)" /> -->
     
     <!-- identity transform -->
     <xsl:template match="@*|node()">
